@@ -3,13 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragger"
+    android:id="@+id/frag"
     tools:context=".TaskMaker">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/hello"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="170dp" />
+
+
+    <Button
+        android:id="@+id/hitter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#64DD17"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="tap me to see product details!" />
+
 
 </FrameLayout>

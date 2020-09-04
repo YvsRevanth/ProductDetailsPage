@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,25 +26,19 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity implements TaskMaker.Honey {
     TaskMaker taskMaker = new TaskMaker();
-    Handler handler = new Handler();
-    Button button;
-    TextView hello;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        hello =findViewById(R.id.hello);
+        setContentView(R.layout.fragment_task_maker);
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(getApplicationContext().CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-         button = (Button) findViewById(R.id.hitter);
-         button.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                 taskMachine.execute("");
-             }
-         });
+        if (networkInfo.isConnected()) {
+            Toast.makeText(this, "connected", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "not connected", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
