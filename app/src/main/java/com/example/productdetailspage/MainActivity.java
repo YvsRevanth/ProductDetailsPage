@@ -24,31 +24,31 @@ import java.net.HttpURLConnection;
 import java.net.NetworkInterface;
 import java.net.URL;
 
-public class MainActivity extends AppCompatActivity implements TaskMaker.Honey {
+public class MainActivity extends AppCompatActivity {
     TaskMaker taskMaker = new TaskMaker();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_task_maker);
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(getApplicationContext().CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        if (networkInfo.isConnected()) {
-            Toast.makeText(this, "connected", Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(this, "not connected", Toast.LENGTH_LONG).show();
-        }
+        setContentView(R.layout.activity_main);
+//        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(getApplicationContext().CONNECTIVITY_SERVICE);
+//        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+//        if (networkInfo.isConnected()) {
+//            Toast.makeText(this, "connected", Toast.LENGTH_LONG).show();
+//        } else {
+//            Toast.makeText(this, "not connected", Toast.LENGTH_LONG).show();
+//        }
+                getSupportFragmentManager().beginTransaction().add(R.id.container, taskMaker).commit();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        getSupportFragmentManager().beginTransaction().add(R.id.container, taskMaker).commit();
     }
 
-    @Override
-    public void data() {
-
-    }
+//    @Override
+//    public void data() {
+//
+//    }
 }

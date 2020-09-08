@@ -27,11 +27,9 @@ import java.net.URL;
 import java.nio.charset.Charset;
 
 public class TaskMaker extends Fragment {
-    Honey honey;
-    FrameLayout frag;
     TextView hello;
-    TaskMachine taskMachine = new TaskMachine();
     Button button;
+    TaskMachine taskMachine = new TaskMachine();
     View view;
 
     @Override
@@ -50,8 +48,8 @@ public class TaskMaker extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        hello = hello.findViewById(R.id.hello);
-        Button button = view.findViewById(R.id.hitter);
+        hello = view.findViewById(R.id.hello);
+        button = view.findViewById(R.id.hitter);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,17 +57,9 @@ public class TaskMaker extends Fragment {
             }
         });
     }
-    public void setHoney(Honey honey) {
-        this.honey = honey;
-    }
 
-    public interface Honey {
-        public void data();
-    }
-}
 
     class TaskMachine extends AsyncTask<String, String, String> {
-        TextView hello;
         Handler handler = new Handler();
         HttpURLConnection httpURLConnection;
 
@@ -104,5 +94,7 @@ public class TaskMaker extends Fragment {
             return null;
         }
     }
+
+}
 
 
